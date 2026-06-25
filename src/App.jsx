@@ -20,6 +20,7 @@ function App() {
 
   const [statusFilter, setStatusFilter] = useState("All");
   const [ticketToDeleteId, setTicketToDeleteId] = useState(null);
+  const [isFormVisible, setIsFormVisible] = useState(false);
 
   function handleAddTicket(newTicket) {
     const updatedTickets = tickets.concat(newTicket);
@@ -62,6 +63,14 @@ function App() {
     setTicketToDeleteId(null);
   }
 
+  function handleToggleForm() {
+    if (isFormVisible === true) {
+      setIsFormVisible(false);
+    } else {
+      setIsFormVisible(true);
+    }
+  }
+
   function getFilteredTickets() {
     if (statusFilter === "All") {
       return tickets;
@@ -84,7 +93,16 @@ function App() {
         <img src={persolLogo} alt="Persol Systems Limited" className="logo" />
       </div>
 
-      <TicketForm onAddTicket={handleAddTicket} />
+      <button className="btn-create-ticket" onClick={handleToggleForm}>
+        {isFormVisible === true ? "Close Form" : "Create Ticket"}
+      </button>
+
+      {isFormVisible === true && (
+        <TicketForm
+          onAddTicket={handleAddTicket}
+          onClose={handleToggleForm}
+        />
+      )}
 
       <FilterBar
         statusFilter={statusFilter}

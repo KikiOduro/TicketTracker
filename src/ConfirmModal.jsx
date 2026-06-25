@@ -2,7 +2,9 @@ function ConfirmModal({ onConfirm, onCancel }) {
   return (
     <div className="modal-overlay">
       <div className="modal-box">
-        <p className="modal-text">Are you sure you want to delete this ticket?</p>
+        <p className="modal-text">
+          Are you sure you want to delete this ticket?
+        </p>
         <div className="modal-buttons">
           <button className="btn-cancel" onClick={onCancel}>
             Cancel

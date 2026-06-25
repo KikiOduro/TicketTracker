@@ -27,11 +27,9 @@ function TicketCard({ ticket, onUpdateStatus, onDeleteTicket }) {
       <p>
         Priority:{" "}
         <span className={getPriorityClass(ticket.priority)}>
-          {ticket.priority}
+          {ticket.priority} 
         </span>
-      </p>
-      <p>
-        Status:{" "}
+        <span className="ticket-meta-gap">Status:{" "}</span>
         <span className={getStatusClass(ticket.status)}>
           {ticket.status}
         </span>

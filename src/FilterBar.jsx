@@ -19,7 +19,7 @@ function FilterBar({ statusFilter, onSetStatusFilter }) {
       >
         Resolved
       </button>
-      <p>Currently showing: {statusFilter}</p>
+      <p className="filter-status">Currently showing: {statusFilter}</p>
     </div>
   );
 }
