@@ -18,8 +18,8 @@ function getInitialTickets() {
     {
       id: 1,
       name: "Akua",
-      title: "VPN not connecting",
-      description: "Can't connect to office VPN since this morning",
+      title: "API not connecting",
+      description: "Can't connect to office API since this morning",
       priority: "High",
       status: "Open",
     },

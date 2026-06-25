@@ -7,7 +7,7 @@ function TicketList({ tickets, onUpdateStatus }) {
         return (
           <TicketCard
             key={ticket.id}
-            ticket={ticket}
+            ticket={ticket} 
             onUpdateStatus={onUpdateStatus}
           />
         );
