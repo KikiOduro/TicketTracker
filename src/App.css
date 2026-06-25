@@ -57,6 +57,7 @@ body {
 .ticket-form-modal {
   width: min(520px, calc(100vw - 40px));
   text-align: center;
+  font-family: Arial, sans-serif;
 }
 
 .ticket-form-header {
@@ -91,6 +92,24 @@ body {
   margin-bottom: 16px;
 }
 
+.ticket-form-modal input,
+.ticket-form-modal textarea,
+.ticket-form-modal select {
+  background-color: #ffffff;
+  color: #000000;
+  -webkit-text-fill-color: #000000;
+  appearance: none;
+  -webkit-appearance: none;
+  background-clip: padding-box;
+  font-family: inherit;
+}
+
+.ticket-form-modal input::placeholder,
+.ticket-form-modal textarea::placeholder {
+  color: #666666;
+  opacity: 1;
+}
+
 .btn-close-modal {
   background-color: transparent;
   color: #0a1f44;
@@ -99,7 +118,7 @@ body {
   border-radius: 5px;
   cursor: pointer;
   font-size: 13px;
-  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  font-family: inherit;
   align-self: center;
 }
 
@@ -126,31 +145,6 @@ form select {
   border: 1px solid #c0c8d6;
   border-radius: 5px;
   font-size: 14px;
-}
-
-form input[aria-invalid="true"],
-form textarea[aria-invalid="true"] {
-  border-color: #e53935;
-  outline: none;
-}
-
-.field-error {
-  margin: -4px 0 0;
-  color: #e53935;
-  font-size: 12px;
-  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
 }
 
 form button {

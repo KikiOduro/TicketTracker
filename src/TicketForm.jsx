@@ -78,12 +78,10 @@ function TicketForm({ onAddTicket, onClose }) {
           </div>
         </div>
         <form onSubmit={handleSubmit}>
-          <label className="sr-only" htmlFor="ticket-name">
-            Your name
-          </label>
           <input
             id="ticket-name"
             name="name"
+            aria-label="Your name"
             type="text"
             placeholder="Your name"
             aria-invalid={errors.name ? "true" : "false"}
@@ -92,12 +90,10 @@ function TicketForm({ onAddTicket, onClose }) {
           />
           {errors.name && <p className="field-error">{errors.name}</p>}
 
-          <label className="sr-only" htmlFor="ticket-title">
-            Issue title
-          </label>
           <input
             id="ticket-title"
             name="title"
+            aria-label="Issue title"
             type="text"
             placeholder="Issue title"
             aria-invalid={errors.title ? "true" : "false"}
@@ -106,11 +102,9 @@ function TicketForm({ onAddTicket, onClose }) {
           />
           {errors.title && <p className="field-error">{errors.title}</p>}
 
-          <label className="sr-only" htmlFor="ticket-description">
-            Describe the issue
-          </label>
           <textarea
             id="ticket-description"
+            aria-label="Describe the issue"
             name="description"
             placeholder="Describe the issue"
             aria-invalid={errors.description ? "true" : "false"}
