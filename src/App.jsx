@@ -1,39 +1,25 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import TicketForm from "./TicketForm";
 import TicketList from "./TicketList";
 import FilterBar from "./FilterBar";
+import ConfirmModal from "./ConfirmModal";
 import persolLogo from "./assets/persol-logo.png";
 
-const TICKETS_STORAGE_KEY = "akuas-testproject-tickets";
-
-function getInitialTickets() {
-  const savedTickets = localStorage.getItem(TICKETS_STORAGE_KEY);
-
-  if (savedTickets) {
-    return JSON.parse(savedTickets);
-  }
-
-  return [
+function App() {
+  const [tickets, setTickets] = useState([
     {
       id: 1,
       name: "Akua",
-      title: "API not connecting",
-      description: "Can't connect to office API since this morning",
+      title: "VPN not connecting",
+      description: "Can't connect to office VPN since this morning",
       priority: "High",
       status: "Open",
     },
-  ];
-}
-
-function App() {
-  const [tickets, setTickets] = useState(getInitialTickets);
+  ]);
 
   const [statusFilter, setStatusFilter] = useState("All");
-
-  useEffect(() => {
-    localStorage.setItem(TICKETS_STORAGE_KEY, JSON.stringify(tickets));
-  }, [tickets]);
+  const [ticketToDeleteId, setTicketToDeleteId] = useState(null);
 
   function handleAddTicket(newTicket) {
     const updatedTickets = tickets.concat(newTicket);
@@ -59,6 +45,23 @@ function App() {
     setTickets(updatedTickets);
   }
 
+  function handleRequestDelete(ticketId) {
+    setTicketToDeleteId(ticketId);
+  }
+
+  function handleConfirmDelete() {
+    const updatedTickets = tickets.filter(function (ticket) {
+      return ticket.id !== ticketToDeleteId;
+    });
+
+    setTickets(updatedTickets);
+    setTicketToDeleteId(null);
+  }
+
+  function handleCancelDelete() {
+    setTicketToDeleteId(null);
+  }
+
   function getFilteredTickets() {
     if (statusFilter === "All") {
       return tickets;
@@ -82,14 +85,24 @@ function App() {
       </div>
 
       <TicketForm onAddTicket={handleAddTicket} />
+
       <FilterBar
         statusFilter={statusFilter}
         onSetStatusFilter={setStatusFilter}
       />
+
       <TicketList
         tickets={getFilteredTickets()}
         onUpdateStatus={handleUpdateStatus}
+        onDeleteTicket={handleRequestDelete}
       />
+
+      {ticketToDeleteId !== null && (
+        <ConfirmModal
+          onConfirm={handleConfirmDelete}
+          onCancel={handleCancelDelete}
+        />
+      )}
     </div>
   );
 }

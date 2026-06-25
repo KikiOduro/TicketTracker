@@ -18,7 +18,7 @@ function getStatusClass(status) {
   }
 }
 
-function TicketCard({ ticket, onUpdateStatus }) {
+function TicketCard({ ticket, onUpdateStatus, onDeleteTicket }) {
   return (
     <div className="ticket-card">
       <h3>{ticket.title}</h3>
@@ -54,6 +54,12 @@ function TicketCard({ ticket, onUpdateStatus }) {
         onClick={() => onUpdateStatus(ticket.id, "Resolved")}
       >
         Resolved
+      </button>
+      <button
+        className="btn-delete"
+        onClick={() => onDeleteTicket(ticket.id)}
+      >
+        Delete
       </button>
     </div>
   );
