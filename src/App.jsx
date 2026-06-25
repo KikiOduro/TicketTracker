@@ -72,7 +72,12 @@ function App() {
   return (
     <div className="app">
       <div className="app-header">
-        <h1>IT Support Ticket Tracker</h1>
+        <div>
+          <h1>IT Support Ticket Tracker</h1>
+          <p className="app-subtitle">
+            Track and resolve IT issues across the team
+          </p>
+        </div>
         <img src={persolLogo} alt="Persol Systems Limited" className="logo" />
       </div>
 

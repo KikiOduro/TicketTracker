@@ -1,5 +1,5 @@
 body {
-  background-color: #edefee;
+  background-color: #d4d6e7;
   font-family: Arial, sans-serif;
   margin: 0;
 }
@@ -27,8 +27,9 @@ body {
   margin: 0;
 }
 
+
 .logo {
-  width: 190px;
+  width: 250px;
 }
 
 /* Ticket Form */
@@ -86,13 +87,25 @@ form button:hover {
   border-radius: 5px;
   cursor: pointer;
   font-size: 13px;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
 }
 
-.filter-bar button:hover {
+/* .filter-bar button:hover {
+  background-color: #1652a3;
+  color: white;
+} */
+
+
+.btn-all:hover {
   background-color: #1652a3;
   color: white;
 }
 
+.btn-open:hover,
+.btn-in-progress:hover,
+.btn-resolved:hover {
+  color: white;
+}
 /* Ticket List + Cards */
 .ticket-list {
   display: grid;
@@ -102,15 +115,17 @@ form button:hover {
 
 .ticket-card {
   background-color: #ffffff;
-  padding: 15px 20px;
-  border-radius: 8px;
-  border: 1px solid #c0c8d6;
-  box-shadow: none;
+  padding: 20px 24px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
 }
 
 .ticket-card h3 {
   margin-top: 0;
-  color: #0a1f44;
+  color: #000000;
+  font-weight: 600;
+  font-size: 17px;
 }
 
 .ticket-card button {
@@ -125,9 +140,68 @@ form button:hover {
   font-size: 12px;
 }
 
-.ticket-card button:hover {
-  background-color: #1652a3;
+
+.ticket-card p {
+  color: #000000;
+  margin: 6px 0;
+  font-size: 14px;
 }
+
+.app-subtitle {
+     color: #0f1114;
+     font-size: 19px;
+     margin: 20px 90px 0 5px;
+     font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+   }
+/* Status button hover colors */
+.btn-open:hover {
+  background-color: #2196f3; /* blue */
+}
+
+.btn-in-progress:hover {
+  background-color: #f4c542; /* yellow */
+  color: #0a1f44; /* dark text so it stays readable on yellow */
+}
+
+.btn-resolved:hover {
+  background-color: #2e8b57; /* green */
+}
+
+/* Priority colors */
+.priority-high {
+  color: #e53935;
+  font-weight: 700;
+}
+
+.priority-medium {
+  color: #000000;
+  font-weight: 700;
+}
+
+.priority-low {
+  color: #555555;
+  font-weight: 500;
+}
+
+/* Status colors - matching the button hover colors */
+.status-open {
+  color: #2196f3;
+  font-weight: 700;
+}
+
+.status-in-progress {
+  color: #c9971f;
+  font-weight: 700;
+}
+
+.status-resolved {
+  color: #2e8b57;
+  font-weight: 700;
+}
+
+
+
+
 
 @media (max-width: 1100px) {
   .ticket-list {
