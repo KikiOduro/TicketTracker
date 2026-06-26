@@ -35,30 +35,37 @@ function TicketCard({ ticket, onUpdateStatus, onDeleteTicket }) {
         </span>
       </p>
 
-      <button
-        className="btn-open"
-        onClick={() => onUpdateStatus(ticket.id, "Open")}
-      >
-        Open
-      </button>
-      <button
-        className="btn-in-progress"
-        onClick={() => onUpdateStatus(ticket.id, "In Progress")}
-      >
-        In Progress
-      </button>
-      <button
-        className="btn-resolved"
-        onClick={() => onUpdateStatus(ticket.id, "Resolved")}
-      >
-        Resolved
-      </button>
-      <button
-        className="btn-delete"
-        onClick={() => onDeleteTicket(ticket.id)}
-      >
-        Delete
-      </button>
+      <div className="ticket-actions">
+        <div className="ticket-status-row">
+          <button
+            className="btn-open"
+            onClick={() => onUpdateStatus(ticket.id, "Open")}
+          >
+            Open
+          </button>
+          <button
+            className="btn-in-progress"
+            onClick={() => onUpdateStatus(ticket.id, "In Progress")}
+          >
+            In Progress
+          </button>
+          <button
+            className="btn-resolved"
+            onClick={() => onUpdateStatus(ticket.id, "Resolved")}
+          >
+            Resolved
+          </button>
+        </div>
+
+        <div className="ticket-delete-row">
+          <button
+            className="btn-delete"
+            onClick={() => onDeleteTicket(ticket.id)}
+          >
+            Delete
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
